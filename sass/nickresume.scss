@@ -1,5 +1,3 @@
-@charset 'utf-8';
-
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
@@ -35,12 +33,12 @@
 
 @import "abstracts/placeholders";
 @import "abstracts/mixins";
-@import "abstracts/variables";
-@import "abstracts/functions";
+@import "base/colors";
 @import "base/reset";
 @import "base/typography";
 @import "components/buttons";
 @import "layout/navigation";
+@import "layout/grid";
 
 body {
   font-family: $sans;
@@ -75,42 +73,48 @@ a {
 }
 
 li {
+  @extend %right;
   padding-top: 4%;
   padding-bottom: 4%;
   font-size: $xsmall;
   font-weight: $bold;
   letter-spacing: $stretch;
   text-transform: uppercase;
-  @extend %right;
 }
 
 ul {
   list-style: none;
 }
 
-// All Pages
+// Display
 
-.flex-container {
-  @extend %flexboxhero;
-  background-color: $porcelain;
+.hide {
+  display: none;
 }
-  .side-nav {
-    padding-right: 2.5vw;
-    @include flex-basis (20vw);
-    background-color: $white;
+
+// Page Wrappers
+.flex-container {
+  @extend %flexherostretchbetween;
+  height: 100vh;
+  background-color: $porcelain
+}
+.experience-flex-container {
+  @extend %flexherostretchbetween;
+  background-color: $porcelain
+}
+.achieve-flex-container {
+  @extend %flexherostretchbetween;
+  background-color: $minsk;
+}
+
+// Nav Elements
+.side-nav {
+  @extend %navbox;
 }
 
 .page-indicator {
-      margin-top: 23%;
-      padding-top: 4%;
-      padding-bottom: 4%;
-      letter-spacing: $stretch;
-      color: $mine-shaft;
-      background-color: $porcelain;
-      font-size: $small;
-      font-weight: $bold;
-      @extend %center;
-    }
+ @extend %pageindicator;
+}
 
 .nav {
   margin-top: 78%;
@@ -119,108 +123,98 @@ ul {
   }
   }
 
-.home-btn {
-  z-index: 4;
-  top: 4%;
-  right: 3vw;
-  width: 5vw;
-  padding-bottom: 5%;
-  @extend %absolute;
-  background-color: $cinnabar;
+//Main content sections
+.main-content {
+  @extend %maincontentleft;
+  width: 71vw;
+    .headline {
+      @extend %headlinetext;
+  }
 }
 
-// Home Page
+.covering-main-content {
+  @extend %maincontentleft;
+  padding-top: 4%;
+  @extend %right;
+    .covering-headline {
+       @extend %headlinetext;
+       @extend %right;
+       margin-right: 5vw;
+    }
+}
 
-.main-content {
-  padding-left: 5vw;
+.experience-main-content {
+  @extend %maincontentleft;
+  @extend %maincontentflexcolumnright;
   @include flex-grow (1);
-  @extend %relative;
-  background-color: $porcelain;
-  .headline {
-    margin-top: 15%;
-    @extend %relative;
-    z-index: 2;
-    color: $cinnabar;
-  }
+  margin-right: 5vw;
+  padding-left: 5vw;
+    }
+
+.achieve-main-content {
+  @extend %maincontentleft;
+  @extend %maincontentflexcolumnright;
+  @include align-self (flex-end);
+  width: 50vw;
+  margin-top: 2%;
+  padding-top: 1.5%;
+  padding-bottom: 5%;
+    }
+
+.skills-main-content {
+  @extend %cardwrapparent;
+}
+
+// Page Content Home Page
+
   .divider {
+    @include positionz (relative, 2);
     width: 18vw;
     margin-left: 16vw;
     padding-top: 0.5%;
-    z-index: 2;
     background-color: $minsk;
-    @extend %relative;
   }
+
   .intro {
-    z-index: 2;
+    @extend %introtext;
+    @include positionz (relative, 2);
     margin-left: 6.4vw;
     width: 30vw;
-    @extend %relative;
-    font-size: $medium;
-    line-height: $wide;
   }
+
   .img {
+    @extend %absolute;
     top: 11%;
     width: 40vw;
     height: 70%;
     margin-left: 25vw;
-    z-index: 1;
     background-color: $white;
-    @extend %absolute;
   }
-}
 
-// Covering Letter Page
+  // Page Content Covering Page
 
-.covering-main-content {
-  @extend .main-content;
-  @extend %right;
-  .covering-headline {
-    @extend .headline;
-     @extend %right;
-     margin-right: 5vw;
-  }
   .covering-intro {
-    @extend %relative;
+    @extend %introtext;
     @extend %right;
-    z-index: 2;
-    width: 40vw;
-    font-size: $medium;
-    line-height: $wide;
+    @include positionz (relative, 2);
     float: right;
+    width: 40vw;
     margin-right: 5vw;
   }
   .covering-img {
     @extend %absolute;
     top: 0px;
-    right: 50vw;
-    margin-top: 26%;
+    right: 45vw;
+    margin-top: 37%;
     height: 40%;
     width: 20vw;
     background-color: $white;
-    z-index: 1;
   }
-}
 
-// Experience Page
-
-.experience-flex-container {
-  @extend %flexbox;
-  width: 100%;
-}
-
-.experience-main-content {
-  @extend .main-content;
-  @extend %flexbox;
-  @include flex-flow (column nowrap);
-  @include justify-content (flex-end);
-  padding-right: 5vw;
-}
+// Page Content Experience Page
 
 .employment {
-  @extend %flexbox;
-  @include justify-content (flex-end);
-  @include align-self (flex-end);
-  @extend %relative;
+  @extend %expflexwrapper;
   width: 50vw;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -230,38 +224,28 @@ ul {
 }
 
 .date {
-  @extend %absolute;
+  @extend %largeboldsans;
+  @include positionz (absolute, 2);
   left: -17vw;
-  top:22%;
-  z-index: 2;
+  top: 15%;
   color: $tundora;
-  font-size: $xlarge;
-  font-weight: $bold;
 }
 
 .job {
   @extend %absolute;
+  @extend %jobtext;
   left: -13vw;
-  top: 24%;
-  padding: 1.5% 2vw;
-  background-color: $white;
-  color: $cinnabar;
-  font-size: $large;
+  top: 17%;
+  padding: 4% 2vw;
 }
 
 .position {
   @extend %absolute;
+  @extend %capsinfotext;
   left: -10vw;
-  top: 46%;
-  padding: 1% 2vw;
-  background-color: $white;
-  font-size: $small;
-  line-height: $wide;
-  font-weight: $bold;
-  letter-spacing: $stretch;
-  text-transform: uppercase;
+  top: 52%;
+  padding: 2% 2vw;
 }
-
 
 .details {
   @include align-self (flex-end);
@@ -272,18 +256,13 @@ ul {
 }
 
 .sub-text {
+  @extend %subtext;
   margin-left: 2vw;
-  font-family: $slab;
-  color: $cinnabar;
-  font-size: 2vw;
 }
 
-
 .job-text {
-  @extend body;
+  @extend %bodytext;
   margin-bottom: 5%;
-  font-size: 1.2vw;
-  letter-spacing: -0.05vw;
 }
 
 .client-block {
@@ -298,80 +277,84 @@ ul {
 }
 
 .view-details {
-  width: 6vw;
-  padding: $pad-common;
-  background-color: $minsk;
-  color: $white;
-  font-family: $slab;
-  font-size: 1.2vw;
-  font-weight: $bold;
-  @extend %center;
+@extend %viewbtn;
 }
 
 .close-details {
-  width: 6vw;
-  margin-bottom: 3%;
-  padding: $pad-common;
-  font-family: $slab;
-  color: $minsk;
-  font-size: 1.2vw;
-  @extend %center;
-  float: right;
+@extend %closebtn;
 }
 
-// acheivements
-
-.achieve-flex-container {
-  @extend %flexbox;
-  @include justify-content (space-between);
-  width:100%;
-  background-color: $minsk;
-}
-
-.achieve-main-content {
-  @extend %right;
-  width: 55vw;
-  margin-top: 5%;
-  margin-right: 5vw;
-  padding-bottom: 5%;
-  background-color: $porcelain;
-}
+// acheivement page content
 
 .achievement {
+  @include positionz (relative, 2);
   margin-left: auto;
   margin-right: auto;
   width: 50vw;
+  right: 2.5vw;
   margin-top: 2.5%;
   margin-bottom: 2.5%;
   background-color: $white;
 }
 
 .achieve-subhead {
-  margin-top: 3%;
+  @extend %subtext;
+  margin-top: 5%;
   margin-bottom: 1%;
   margin-left: 2vw;
-  text-align: left;
 }
 
-.date.header {
-  left: -22vw;
-  top: 36%;
-  width: 20vw;
-  margin-right: 0vw;
-  color: #fff;
-  font-size: 3.5vw;
-  line-height: 100%;
+.achieve-sectiontext {
+  @include positionz (absolute, 2);
+  @extend %largeboldsansacheive;
+  left: -20vw;
+  color: $white;
 }
 
-.position.achieve {
-  position: relative;
-  left: 0vw;
-  bottom: 0%;
-  margin-left: 3vw;
-  padding-left: 0vw;
-  text-align: left;
+.achieve-capsinfo {
+  @extend %capsinfotext;
+  margin-left: 0.3vw;
 }
 
-.job-text.achieve-text {
-  margin-top: 3%;
+.achieve-text {
+  @extend %bodytext;
+  margin-top: -3%;
+  padding-bottom: 5%;
+}
+
+// Skills Page content
+
+.skill {
+  @extend %subtext;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 8% 1vw;
+  background-color: #fff;
+}
+
+.skill-item {
+  @extend %center;
+  width: 30%;
+  height: 45%;
+  margin-bottom: 5%;
+  margin-left: 1vw;
+  background-color: $minsk;
+}
+
+.icon {
+  display: inline-block;
+  width: 6vw;
+  margin-top: 7%;
+  padding-bottom: 26%;
+  background-color: $martinique;
+}
+
+.skilltext {
+  @extend %bodytext;
+  @extend %left;
+  width: 18vw;
+  margin-bottom: 1%;
+  padding-bottom: 9%;
+  padding-left: 1vw;
+  color: $white;
 }

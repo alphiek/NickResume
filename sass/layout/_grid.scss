@@ -1,0 +1,33 @@
+//
+
+%flexherostretchbetween {
+@extend %flexboxhero;
+@include justify-content (space-between);
+@include align-items (stretch);
+}
+
+%maincontentleft {
+@extend %relative;
+background-color: $porcelain;
+}
+
+%maincontentflexcolumnright {
+@extend %flexbox;
+@include flex-flow (column nowrap);
+@include align-items (flex-end);
+}
+
+%cardwrapparent {
+  @extend %flexbox;
+  @include flex-wrap (wrap);
+  @include justify-content (space-between);
+  width: 65vw;
+  padding: 2% 5vw;
+}
+
+%expflexwrapper {
+@extend %flexbox;
+@include justify-content (flex-end);
+@include align-self (flex-end);
+@extend %relative;
+}

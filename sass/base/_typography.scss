@@ -21,6 +21,66 @@ $xsmall: 0.7vw;
 
 // padding
 $pad-common: 2% 2vw;
-
+$double-pad: 4% 4vw;
 //letter-spacing
 $stretch: 0.2vw;
+
+// Headline Base Styling
+%headlinetext {
+    @extend %relative;
+    margin-top: 15%;
+    z-index: 2;
+    color: $cinnabar;
+  }
+
+%introtext {
+    font-size: $medium;
+    line-height: $wide;
+  }
+
+%largeboldsans {
+    font-size: $xlarge;
+    font-weight: $bold;
+    line-height: 100%;
+  }
+
+%largeboldsansacheive {
+      font-size: 2.9vw;
+      font-weight: $bold;
+      line-height: 90%;
+    }
+
+%jobtext {
+  background-color: $white;
+  color: $cinnabar;
+  font-size: $large;
+}
+
+%capsinfotext {
+  background-color: $white;
+  font-size: $small;
+  line-height: $wide;
+  font-weight: $bold;
+  letter-spacing: $stretch;
+  text-transform: uppercase;
+}
+
+%subtext {
+font-family: $slab;
+color: $cinnabar;
+font-size: 2vw;
+}
+
+%bodytext {
+  @extend body;
+  font-size: 1.2vw;
+  letter-spacing: -0.05vw;
+}
+
+%btntext {
+  font-family: $slab;
+  font-size: 1.2vw;
+  font-weight: $bold;
+  line-height: $narrow;
+  @extend %center;
+}

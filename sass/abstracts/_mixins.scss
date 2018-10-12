@@ -1,4 +1,5 @@
-// Flexbox Direction
+// Flexbox Parent Properties
+// 1. Flexbox Direction
 
 @mixin flex-direction($value: row) {
 	@if $value == row-reverse {
@@ -19,25 +20,8 @@
 	-ms-flex-direction: $value;
 	flex-direction: $value;
 }
-	// Shorter version:
-	@mixin flex-dir($value: false) { @include flex-direction($value); }
-
-
-//............................................................................
-
-  @mixin inline-flex {
-  	display: -webkit-inline-box;
-  	display: -webkit-inline-flex;
-  	display: -moz-inline-flex;
-  	display: -ms-inline-flexbox;
-  	display: inline-flex;
-  }
-
-  %inline-flex { @include inline-flex; }
 
   //----------------------------------------------------------------------
-
-//----------------------------------------------------------------------
 
 // Flexbox Wrap
 //
@@ -312,5 +296,10 @@
 	align-content: $value;
 }
 
+//------------------------------------------------------------------------
+// Positioning and Z-index
 
-// text aligns
+@mixin positionz($position, $index) {
+	position: $position;
+	z-index: $index;
+}

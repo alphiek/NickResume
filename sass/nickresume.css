@@ -23,32 +23,34 @@
   font-weight: 700;
   src: local("Roboto Slab Bold"), local("RobotoSlab-Bold"), url(https://fonts.gstatic.com/s/robotoslab/v7/BngRUXZYTXPIvIBgJJSb6u92w7CGwR0.woff2) format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-.flex-container {
+.flex-container, .experience-flex-container, .achieve-flex-container {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  height: 100vh; }
+  width: 100%; }
 
-.experience-flex-container, .experience-main-content, .employment, .achieve-flex-container {
+.experience-main-content, .achieve-main-content, .skills-main-content, .employment {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex; }
 
-.home-btn, .main-content .img, .covering-main-content .img, .experience-main-content .img, .covering-main-content .covering-img, .date, .job, .position {
+.img, .covering-img, .job, .position {
   position: absolute; }
 
-.main-content, .covering-main-content, .experience-main-content, .main-content .headline, .covering-main-content .headline, .experience-main-content .headline, .covering-main-content .covering-headline, .main-content .divider, .covering-main-content .divider, .experience-main-content .divider, .main-content .intro, .covering-main-content .intro, .experience-main-content .intro, .covering-main-content .covering-intro, .employment {
+.main-content .headline, .covering-main-content .covering-headline, .main-content, .covering-main-content, .experience-main-content, .achieve-main-content, .employment {
   position: relative; }
 
-.page-indicator, .view-details, .close-details {
+.view-details, .close-details, .page-indicator, .skill-item {
   text-align: center; }
 
-li, .covering-main-content, .covering-main-content .covering-headline, .covering-main-content .covering-intro, .achieve-main-content {
+.skilltext {
+  text-align: left; }
+
+li, .covering-main-content, .covering-main-content .covering-headline, .covering-intro {
   text-align: right; }
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -68,7 +70,7 @@ html {
 /**
  * Remove default margin.
  */
-body, .job-text {
+body, .job-text, .achieve-text, .skilltext {
   margin: 0; }
 
 /* HTML5 display definitions
@@ -399,7 +401,135 @@ td,
 th {
   padding: 0; }
 
-body, .job-text {
+.main-content .headline, .covering-main-content .covering-headline {
+  margin-top: 15%;
+  z-index: 2;
+  color: #E74C3C; }
+
+.intro, .covering-intro {
+  font-size: 1.5vw;
+  line-height: 140%; }
+
+.date {
+  font-size: 3.8vw;
+  font-weight: 700;
+  line-height: 100%; }
+
+.achieve-sectiontext {
+  font-size: 2.9vw;
+  font-weight: 700;
+  line-height: 90%; }
+
+.job {
+  background-color: #fff;
+  color: #E74C3C;
+  font-size: 2.4vw; }
+
+.position, .achieve-capsinfo {
+  background-color: #fff;
+  font-size: 0.8vw;
+  line-height: 140%;
+  font-weight: 700;
+  letter-spacing: 0.2vw;
+  text-transform: uppercase; }
+
+.sub-text, .achieve-subhead, .skill {
+  font-family: "Roboto Slab", sans-serif;
+  color: #E74C3C;
+  font-size: 2vw; }
+
+.job-text, .achieve-text, .skilltext {
+  font-size: 1.2vw;
+  letter-spacing: -0.05vw; }
+
+.view-details, .close-details {
+  font-family: "Roboto Slab", sans-serif;
+  font-size: 1.2vw;
+  font-weight: 700;
+  line-height: 120%; }
+
+.view-details {
+  width: 6vw;
+  padding: 2% 2vw;
+  background-color: #393395;
+  color: #fff; }
+
+.close-details {
+  width: 6vw;
+  padding: 2% 2vw;
+  margin-bottom: 3%;
+  color: #393395;
+  float: right; }
+
+.side-nav {
+  -webkit-flex-basis: 20vw;
+  -moz-flex-basis: 20vw;
+  -ms-flex-preferred-size: 20vw;
+  flex-basis: 20vw;
+  padding-right: 2.5vw;
+  background-color: #fff; }
+
+.page-indicator {
+  margin-top: 23%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  letter-spacing: 0.2vw;
+  color: #2c2c2c;
+  background-color: #F5F8F8;
+  font-size: 0.8vw;
+  font-weight: 700; }
+
+.flex-container, .experience-flex-container, .achieve-flex-container {
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  -webkit-box-align: stretch;
+  -ms-flex-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  align-items: stretch; }
+
+.main-content, .covering-main-content, .experience-main-content, .achieve-main-content {
+  background-color: #F5F8F8; }
+
+.experience-main-content, .achieve-main-content {
+  -webkit-flex-flow: column nowrap;
+  -moz-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  align-items: flex-end; }
+
+.skills-main-content {
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  justify-content: space-between;
+  width: 65vw;
+  padding: 2% 5vw; }
+
+.employment {
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  -webkit-justify-content: flex-end;
+  -moz-justify-content: flex-end;
+  justify-content: flex-end;
+  -webkit-align-self: flex-end;
+  -moz-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end; }
+
+body, .job-text, .achieve-text, .skilltext {
   font-family: Montserrat, sans-serif;
   font-weight: 400;
   color: #4d5063;
@@ -437,115 +567,88 @@ li {
 ul {
   list-style: none; }
 
+.hide {
+  display: none; }
+
 .flex-container {
+  height: 100vh;
   background-color: #F5F8F8; }
 
-.side-nav {
-  padding-right: 2.5vw;
-  -webkit-flex-basis: 20vw;
-  -moz-flex-basis: 20vw;
-  -ms-flex-preferred-size: 20vw;
-  flex-basis: 20vw;
-  background-color: #fff; }
+.experience-flex-container {
+  background-color: #F5F8F8; }
 
-.page-indicator {
-  margin-top: 23%;
-  padding-top: 4%;
-  padding-bottom: 4%;
-  letter-spacing: 0.2vw;
-  color: #2c2c2c;
-  background-color: #F5F8F8;
-  font-size: 0.8vw;
-  font-weight: 700; }
+.achieve-flex-container {
+  background-color: #393395; }
 
 .nav {
   margin-top: 78%; }
   .nav .strikethrough {
     text-decoration: line-through; }
 
-.home-btn {
-  z-index: 4;
-  top: 4%;
-  right: 3vw;
-  width: 5vw;
-  padding-bottom: 5%;
-  background-color: #E74C3C; }
+.main-content {
+  width: 71vw; }
 
-.main-content, .covering-main-content, .experience-main-content {
-  padding-left: 5vw;
+.covering-main-content {
+  padding-top: 4%; }
+  .covering-main-content .covering-headline {
+    margin-right: 5vw; }
+
+.experience-main-content {
   -webkit-box-flex: 1;
   -webkit-flex-grow: 1;
   -moz-flex-grow: 1;
   -ms-flex-positive: 1;
   flex-grow: 1;
-  background-color: #F5F8F8; }
-  .main-content .headline, .covering-main-content .headline, .experience-main-content .headline, .covering-main-content .covering-headline {
-    margin-top: 15%;
-    z-index: 2;
-    color: #E74C3C; }
-  .main-content .divider, .covering-main-content .divider, .experience-main-content .divider {
-    width: 18vw;
-    margin-left: 16vw;
-    padding-top: 0.5%;
-    z-index: 2;
-    background-color: #393395; }
-  .main-content .intro, .covering-main-content .intro, .experience-main-content .intro {
-    z-index: 2;
-    margin-left: 6.4vw;
-    width: 30vw;
-    font-size: 1.5vw;
-    line-height: 140%; }
-  .main-content .img, .covering-main-content .img, .experience-main-content .img {
-    top: 11%;
-    width: 40vw;
-    height: 70%;
-    margin-left: 25vw;
-    z-index: 1;
-    background-color: #fff; }
+  margin-right: 5vw;
+  padding-left: 5vw; }
 
-.covering-main-content .covering-headline {
-  margin-right: 5vw; }
-.covering-main-content .covering-intro {
-  z-index: 2;
-  width: 40vw;
-  font-size: 1.5vw;
-  line-height: 140%;
-  float: right;
-  margin-right: 5vw; }
-.covering-main-content .covering-img {
-  top: 0px;
-  right: 50vw;
-  margin-top: 26%;
-  height: 40%;
-  width: 20vw;
-  background-color: #fff;
-  z-index: 1; }
-
-.experience-flex-container {
-  width: 100%; }
-
-.experience-main-content {
-  -webkit-flex-flow: column nowrap;
-  -moz-flex-flow: column nowrap;
-  -ms-flex-flow: column nowrap;
-  flex-flow: column nowrap;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  -moz-justify-content: flex-end;
-  justify-content: flex-end;
-  padding-right: 5vw; }
-
-.employment {
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  -moz-justify-content: flex-end;
-  justify-content: flex-end;
+.achieve-main-content {
   -webkit-align-self: flex-end;
   -moz-align-self: flex-end;
   -ms-flex-item-align: end;
   align-self: flex-end;
+  width: 50vw;
+  margin-top: 2%;
+  padding-top: 1.5%;
+  padding-bottom: 5%; }
+
+.divider {
+  position: relative;
+  z-index: 2;
+  width: 18vw;
+  margin-left: 16vw;
+  padding-top: 0.5%;
+  background-color: #393395; }
+
+.intro {
+  position: relative;
+  z-index: 2;
+  margin-left: 6.4vw;
+  width: 30vw; }
+
+.img {
+  top: 11%;
+  width: 40vw;
+  height: 70%;
+  margin-left: 25vw;
+  background-color: #fff; }
+
+.covering-intro {
+  position: relative;
+  z-index: 2;
+  float: right;
+  width: 40vw;
+  margin-right: 5vw; }
+
+.covering-img {
+  top: 0px;
+  right: 45vw;
+  margin-top: 37%;
+  height: 40%;
+  width: 20vw;
+  background-color: #fff; }
+
+.employment {
   width: 50vw;
   margin-top: 2%;
   margin-bottom: 2%;
@@ -554,31 +657,21 @@ ul {
   background-color: #323048; }
 
 .date {
-  left: -17vw;
-  top: 22%;
+  position: absolute;
   z-index: 2;
-  color: #473d3d;
-  font-size: 3.8vw;
-  font-weight: 700; }
+  left: -17vw;
+  top: 15%;
+  color: #473d3d; }
 
 .job {
   left: -13vw;
-  top: 24%;
-  padding: 1.5% 2vw;
-  background-color: #fff;
-  color: #E74C3C;
-  font-size: 2.4vw; }
+  top: 17%;
+  padding: 4% 2vw; }
 
 .position {
   left: -10vw;
-  top: 46%;
-  padding: 1% 2vw;
-  background-color: #fff;
-  font-size: 0.8vw;
-  line-height: 140%;
-  font-weight: 700;
-  letter-spacing: 0.2vw;
-  text-transform: uppercase; }
+  top: 52%;
+  padding: 2% 2vw; }
 
 .details {
   -webkit-align-self: flex-end;
@@ -591,15 +684,10 @@ ul {
   border: 1vw solid #393395; }
 
 .sub-text {
-  margin-left: 2vw;
-  font-family: "Roboto Slab", sans-serif;
-  color: #E74C3C;
-  font-size: 2vw; }
+  margin-left: 2vw; }
 
 .job-text {
-  margin-bottom: 5%;
-  font-size: 1.2vw;
-  letter-spacing: -0.05vw; }
+  margin-bottom: 5%; }
 
 .client-block {
   width: 40vw;
@@ -611,72 +699,60 @@ ul {
   padding-bottom: 7%;
   background-color: #fff; }
 
-.view-details {
-  width: 6vw;
-  padding: 2% 2vw;
-  background-color: #393395;
-  color: #fff;
-  font-family: "Roboto Slab", sans-serif;
-  font-size: 1.2vw;
-  font-weight: 700; }
-
-.close-details {
-  width: 6vw;
-  margin-bottom: 3%;
-  padding: 2% 2vw;
-  font-family: "Roboto Slab", sans-serif;
-  color: #393395;
-  font-size: 1.2vw;
-  float: right; }
-
-.achieve-flex-container {
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  justify-content: space-between;
-  width: 100%;
-  background-color: #393395; }
-
-.achieve-main-content {
-  width: 55vw;
-  margin-top: 5%;
-  margin-right: 5vw;
-  padding-bottom: 5%;
-  background-color: #F5F8F8; }
-
 .achievement {
+  position: relative;
+  z-index: 2;
   margin-left: auto;
   margin-right: auto;
   width: 50vw;
+  right: 2.5vw;
   margin-top: 2.5%;
   margin-bottom: 2.5%;
   background-color: #fff; }
 
 .achieve-subhead {
-  margin-top: 3%;
+  margin-top: 5%;
   margin-bottom: 1%;
-  margin-left: 2vw;
-  text-align: left; }
+  margin-left: 2vw; }
 
-.date.header {
-  left: -22vw;
-  top: 36%;
-  width: 20vw;
-  margin-right: 0vw;
-  color: #fff;
-  font-size: 3.5vw;
-  line-height: 100%; }
+.achieve-sectiontext {
+  position: absolute;
+  z-index: 2;
+  left: -20vw;
+  color: #fff; }
 
-.position.achieve {
-  position: relative;
-  left: 0vw;
-  bottom: 0%;
-  margin-left: 3vw;
-  padding-left: 0vw;
-  text-align: left; }
+.achieve-capsinfo {
+  margin-left: 0.3vw; }
 
-.job-text.achieve-text {
-  margin-top: 3%; }
+.achieve-text {
+  margin-top: -3%;
+  padding-bottom: 5%; }
+
+.skill {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  padding: 8% 1vw;
+  background-color: #fff; }
+
+.skill-item {
+  width: 30%;
+  height: 45%;
+  margin-bottom: 5%;
+  margin-left: 1vw;
+  background-color: #393395; }
+
+.icon {
+  display: inline-block;
+  width: 6vw;
+  margin-top: 7%;
+  padding-bottom: 26%;
+  background-color: #323048; }
+
+.skilltext {
+  width: 18vw;
+  margin-bottom: 1%;
+  padding-bottom: 9%;
+  padding-left: 1vw;
+  color: #fff; }
 
 /*# sourceMappingURL=nickresume.css.map */

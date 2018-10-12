@@ -1,0 +1,16 @@
+%viewbtn {
+@extend %btntext;
+width: 6vw;
+padding: $pad-common;
+background-color: $minsk;
+color: $white;
+}
+
+%closebtn {
+  @extend %btntext;
+  width: 6vw;
+  padding: $pad-common;
+  margin-bottom: 3%;
+  color: $minsk;
+  float: right;
+}
